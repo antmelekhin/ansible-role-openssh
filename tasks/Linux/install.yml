@@ -1,0 +1,6 @@
+---
+
+- name: 'Linux | Install OpenSSH packages'
+  package:
+    name: openssh
+    state: present

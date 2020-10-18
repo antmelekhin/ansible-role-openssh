@@ -1,0 +1,19 @@
+---
+
+- name: 'Windows | Install required DSC modules'
+  win_psmodule:
+    name: '{{ item }}'
+    repository: PSGallery
+    state: present
+  with_items:
+    - ComputerManagementDsc
+    - NetworkingDsc
+
+- name: 'Windows | Install OpenSSH packages'
+  win_dsc:
+    resource_name: WindowsCapability
+    Name: '{{ item }}'
+    Ensure: Present
+  with_items:
+    - OpenSSH.Server~~~~0.0.1.0
+    - OpenSSH.Client~~~~0.0.1.0

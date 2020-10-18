@@ -1,0 +1,23 @@
+---
+# tasks file for openssh
+
+- name: 'Gathering Service Facts'
+  service_facts:
+
+- name: 'Include OS-specific variables'
+  include_vars: '{{ distribution }}'
+  with_first_found:
+    - '{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml'
+    - '{{ ansible_distribution }}.yml'
+    - '{{ ansible_os_family }}.yml'
+  loop_control:
+    loop_var: distribution
+
+- name: 'Include OS-specific tasks for Installing OpenSSH'
+  include_tasks: '{{ ansible_system }}/install.yml'
+
+- name: 'Include OS-specific tasks for Configure OpenSSH'
+  include_tasks: '{{ ansible_system }}/configure.yml'
+
+- name: 'Include OS-specific security settings tasks'
+  include_tasks: '{{ ansible_system }}/security.yml'

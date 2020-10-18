@@ -1,0 +1,9 @@
+---
+
+openssh__selinux_packages:
+  - policycoreutils-python
+
+openssh__sshd_host_keys_dir: '/etc/ssh/'
+
+openssh__sshd_subsystems:
+  sftp: '/usr/libexec/openssh/sftp-server'

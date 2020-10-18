@@ -1,0 +1,12 @@
+---
+# handlers file for openssh
+
+- name: 'Linux | Restart SSHD'
+  service:
+    name: sshd
+    state: restarted
+
+- name: 'Windows | Restart SSHD'
+  win_service:
+    name: sshd
+    state: restarted

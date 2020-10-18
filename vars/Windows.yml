@@ -1,0 +1,6 @@
+---
+
+openssh__sshd_host_keys_dir: '__PROGRAMDATA__/ssh/'
+
+openssh__sshd_subsystems:
+  sftp: 'C:\Windows\System32\OpenSSH\sftp-server.exe'

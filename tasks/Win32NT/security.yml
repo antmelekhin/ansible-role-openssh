@@ -1,0 +1,17 @@
+---
+
+- name: 'Windows | Set up Firewall Rule for OpenSSH Server'
+  win_dsc:
+    resource_name: Firewall
+    Group: 'OpenSSH Server'
+    DisplayName: 'OpenSSH Server (sshd)'
+    Name: 'OpenSSH-Server-In-TCP'
+    Description: 'Inbound rule for OpenSSH SSH Server (sshd)'
+    Program: 'C:\Windows\system32\OpenSSH\sshd.exe'
+    LocalPort: '{{ openssh__sshd_port }}'
+    Action: Allow
+    Protocol: TCP
+    Direction: Inbound
+    Profile: Domain, Private
+    Enabled: True
+    Ensure: Present

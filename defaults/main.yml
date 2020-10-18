@@ -1,0 +1,71 @@
+---
+# defaults file for openssh
+
+# Порт поключения.
+openssh__sshd_port: 22
+
+# Использование протокола ipv6.
+openssh__sshd_ipv6_enable: true
+
+# Закрытые ключи хоста.
+openssh__sshd_host_keys:
+  - ssh_host_rsa_key
+  - ssh_host_ecdsa_key
+  - ssh_host_ed25519_key
+
+# Параметр определяющий в какой журнал syslog записываются события. В ОС Windows все события записываются в журналы ETW, если требуется ведение журнала в файле, нужно указать LOCAL0.
+openssh__sshd_syslog_facility: 'AUTHPRIV'
+
+# Уровень детализации событий.
+openssh__sshd_log_level: 'INFO'
+
+# Время ожидания ввода пароля.
+openssh__sshd_login_grace_time: '1m'
+
+# Ограничение на количество попыток аутентификации в течение одного соединения.
+openssh__sshd_max_auth_tries: 4
+
+# Максимальное количество открытых сеансов.
+openssh__sshd_max_sessions: 10
+
+# Ограничение на количество одновременных соединений, в которых не был пройден этап аутентификации.
+openssh__sshd_max_startups: '10:30:100'
+
+# Файл с открытыми ключами, которые используются для аутентификации пользователей.
+openssh__sshd_authorized_keys_file: '.ssh/authorized_keys'
+
+# Аутентификация по паролю.
+openssh__sshd_password_authentication: false
+
+# Проверять ли пароль указанный пользователем для аутентификации PasswordAuthentication в Kerberos KDC. Не поддерживается в ОС Windows.
+openssh__sshd_kerberos_authentication: false
+
+# Очистка кэша билетов пользователя при завершении сеанса. Не поддерживается в ОС Windows.
+openssh__sshd_kerberos_ticket_cleanup: true
+
+# Автоматическая аутентификации (single sign-on). Не поддерживается в ОС Windows.
+openssh__sshd_gssapi_authentication: false
+
+# Очистка кэша аутентификационных данных клиента при завершении сеанса. Не поддерживается в ОС Windows.
+openssh__sshd_gssapi_cleanup_credentials: true
+
+# Проверка прав пользователей в их домашних каталогах. Не поддерживается в ОС Windows.
+openssh__sshd_strict_modes: true
+
+# Авторизации под суперпользователем.
+openssh__sshd_permit_root_login: false
+
+# Отправка сообщений TCP keepalive для удержания активного соединения.
+openssh__sshd_tcp_keep_alive: false
+
+# Время бездействия клиента в секундах, после которого sshd отправляет запрос на отклик.
+openssh__sshd_client_alive_interval: 0
+
+# Количество запросов проверяющих доступность клиента, которые могут оставаться без ответа. По достижению предела, sshd отключает клиента и завершает сеанс.
+openssh__sshd_client_alive_count_max: 3
+
+# Перенаправления графической подсистемы X11. Не поддерживается в ОС Windows.
+openssh__sshd_x11_forwarding: false
+
+# Выполнение запросов DNS для получения имени удалённого хоста, чтобы убедиться в том, что обратное преобразование выдаёт тот же самый IP-адрес.
+openssh__sshd_use_dns: false
