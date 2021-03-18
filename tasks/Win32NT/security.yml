@@ -13,5 +13,5 @@
     Protocol: TCP
     Direction: Inbound
     Profile: Domain, Private
-    Enabled: True
+    Enabled: true
     Ensure: Present
