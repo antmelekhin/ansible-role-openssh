@@ -1,5 +1,8 @@
 ---
 
+- name: 'Gathering Service Facts'
+  service_facts:
+
 - name: 'Linux | Configure SELinux when is already installed'
   block:
     - name: 'Linux | Install SELinux required packages'

@@ -1,9 +1,6 @@
 ---
 # tasks file for openssh
 
-- name: 'Gathering Service Facts'
-  service_facts:
-
 - name: 'Include OS-specific variables'
   include_vars: '{{ distribution }}'
   with_first_found:
