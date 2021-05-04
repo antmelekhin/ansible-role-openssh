@@ -1,5 +1,10 @@
 ---
 
+openssh__packages:
+  - openssh
+  - openssh-server
+  - openssh-clients
+
 openssh__selinux_packages:
   - policycoreutils-python
 

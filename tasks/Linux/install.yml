@@ -2,5 +2,5 @@
 
 - name: 'Linux | Install OpenSSH packages'
   package:
-    name: openssh
+    name: '{{ openssh__packages }}'
     state: present
