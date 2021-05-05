@@ -15,3 +15,8 @@
         - ansible_facts.services['sshd.service'].state == 'running' or
           ansible_facts.services['sshd.service'].state == 'active'
         - ansible_facts.services['sshd.service'].status == 'enabled'
+
+  - name: 'Check port'
+    wait_for:
+      port: 22
+      search_regex: 'OpenSSH'
