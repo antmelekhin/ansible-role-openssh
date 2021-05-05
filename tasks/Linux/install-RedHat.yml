@@ -1,6 +1,6 @@
 ---
 
-- name: 'Linux | Install OpenSSH packages'
-  package:
+- name: 'RedHat | Install OpenSSH packages'
+  yum:
     name: '{{ openssh__packages }}'
     state: present

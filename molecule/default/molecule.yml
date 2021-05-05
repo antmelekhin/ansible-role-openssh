@@ -14,13 +14,25 @@ platforms:
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
-    command: "/usr/sbin/init"
+    command: '/usr/sbin/init'
   - name: centos-7
     image: jrei/systemd-centos:7
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
-    command: "/usr/sbin/init"
+    command: '/usr/sbin/init'
+  - name: ubuntu-2004
+    image: jrei/systemd-ubuntu:20.04
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    command: '/lib/systemd/systemd'
+  - name: debian-10
+    image: jrei/systemd-debian:10
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    command: '/lib/systemd/systemd'
 provisioner:
   name: ansible
 verifier:
