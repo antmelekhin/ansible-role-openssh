@@ -12,6 +12,6 @@
     dest: /etc/ssh/sshd_config
     owner: root
     group: root
-    mode: 0600
+    mode: 0644
     validate: /usr/sbin/sshd -T -C user=root -C host=localhost -C addr=localhost -f %s
   notify: Linux | Restart SSHD
