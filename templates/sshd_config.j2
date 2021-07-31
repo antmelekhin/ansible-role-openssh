@@ -1,4 +1,4 @@
-{{ ansible_managed|comment }}
+{{ ansible_managed | comment }}
 # This is the sshd server system-wide configuration file.
 # See sshd_config(5) for more information.
 
@@ -8,9 +8,9 @@ Protocol 2
 
 Port {{ openssh__sshd_port }}
 
-AddressFamily {{ 'any' if (openssh__sshd_ipv6_enable|bool) else 'inet' }}
+AddressFamily {{ 'any' if (openssh__sshd_ipv6_enable | bool) else 'inet' }}
 ListenAddress 0.0.0.0
-{% if openssh__sshd_ipv6_enable|bool %}
+{% if openssh__sshd_ipv6_enable | bool %}
 ListenAddress ::
 {% endif %}
 
@@ -33,7 +33,7 @@ MaxStartups {{ openssh__sshd_max_startups }}
 PubkeyAuthentication yes
 AuthorizedKeysFile {{ openssh__sshd_authorized_keys_file }}
 
-PasswordAuthentication {{ 'yes' if (openssh__sshd_password_authentication|bool) else 'no' }}
+PasswordAuthentication {{ 'yes' if (openssh__sshd_password_authentication | bool) else 'no' }}
 PermitEmptyPasswords no
 
 # Change to no to disable s/key passwords
@@ -45,29 +45,29 @@ HostbasedAuthentication no
 IgnoreUserKnownHosts yes
 IgnoreRhosts yes
 
-KerberosAuthentication {{ 'yes' if (openssh__sshd_kerberos_authentication|bool) else 'no' }}
-KerberosTicketCleanup {{ 'yes' if (openssh__sshd_kerberos_ticket_cleanup|bool) else 'no' }}
+KerberosAuthentication {{ 'yes' if (openssh__sshd_kerberos_authentication | bool) else 'no' }}
+KerberosTicketCleanup {{ 'yes' if (openssh__sshd_kerberos_ticket_cleanup | bool) else 'no' }}
 #KerberosOrLocalPasswd yes
 #KerberosGetAFSToken no
 #KerberosUseKuserok yes
 
-GSSAPIAuthentication {{ 'yes' if (openssh__sshd_gssapi_authentication|bool) else 'no' }}
-GSSAPICleanupCredentials {{ 'yes' if (openssh__sshd_gssapi_cleanup_credentials|bool) else 'no' }}
+GSSAPIAuthentication {{ 'yes' if (openssh__sshd_gssapi_authentication | bool) else 'no' }}
+GSSAPICleanupCredentials {{ 'yes' if (openssh__sshd_gssapi_cleanup_credentials | bool) else 'no' }}
 #GSSAPIStrictAcceptorCheck yes
 #GSSAPIKeyExchange no
 #GSSAPIEnablek5users no
 
-UsePAM {{ 'yes' if (openssh__sshd_password_authentication|bool) else 'no' }}
-StrictModes {{ 'yes' if (openssh__sshd_strict_modes|bool) else 'no' }}
+UsePAM {{ 'yes' if (openssh__sshd_password_authentication | bool) else 'no' }}
+StrictModes {{ 'yes' if (openssh__sshd_strict_modes | bool) else 'no' }}
 
-PermitRootLogin {{ 'yes' if (openssh__sshd_permit_root_login|bool) else 'no' }}
+PermitRootLogin {{ 'yes' if (openssh__sshd_permit_root_login | bool) else 'no' }}
 {% endif %}
 
 #UseLogin no
 
 #========================================== NETWORK ============================================
 
-TCPKeepAlive {{ 'yes' if (openssh__sshd_tcp_keep_alive|bool) else 'no' }}
+TCPKeepAlive {{ 'yes' if (openssh__sshd_tcp_keep_alive | bool) else 'no' }}
 ClientAliveInterval {{ openssh__sshd_client_alive_interval }}
 ClientAliveCountMax {{ openssh__sshd_client_alive_count_max }}
 
@@ -77,7 +77,7 @@ AllowTcpForwarding yes
 GatewayPorts no
 
 {% if ansible_os_family != 'Windows' %}
-X11Forwarding {{ 'yes' if (openssh__sshd_x11_forwarding|bool) else 'no' }}
+X11Forwarding {{ 'yes' if (openssh__sshd_x11_forwarding | bool) else 'no' }}
 #X11DisplayOffset 10
 #X11UseLocalhost yes
 
@@ -108,7 +108,7 @@ Compression delayed
 #ChrootDirectory none
 {% endif %}
 
-UseDNS {{ 'yes' if (openssh__sshd_use_dns|bool) else 'no' }}
+UseDNS {{ 'yes' if (openssh__sshd_use_dns | bool) else 'no' }}
 
 # no default banner path
 #Banner none
