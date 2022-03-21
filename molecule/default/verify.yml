@@ -4,16 +4,16 @@
   gather_facts: false
   tasks:
     - name: 'Gathering Service Facts'
-      service_facts:
+      ansible.builtin.service_facts:
 
     - name: 'Assert that sshd service is enabled and running'
-      assert:
+      ansible.builtin.assert:
         that:
           - ansible_facts.services['sshd.service'].state == 'running' or
             ansible_facts.services['sshd.service'].state == 'active'
           - ansible_facts.services['sshd.service'].status == 'enabled'
 
     - name: 'Check port'
-      wait_for:
+      ansible.builtin.wait_for:
         port: 22
         search_regex: 'OpenSSH'
