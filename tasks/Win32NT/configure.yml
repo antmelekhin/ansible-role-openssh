@@ -1,5 +1,4 @@
 ---
-
 - name: 'Windows | Start OpenSSH Server'
   win_service:
     name: sshd

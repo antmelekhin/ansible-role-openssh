@@ -1,5 +1,4 @@
 ---
-
 - name: 'Linux | Start OpenSSH Server'
   service:
     name: sshd

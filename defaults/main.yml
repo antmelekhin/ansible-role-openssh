@@ -1,6 +1,4 @@
 ---
-# defaults file for openssh
-
 # Порт поключения.
 openssh__sshd_port: 22
 

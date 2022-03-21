@@ -1,6 +1,4 @@
 ---
-# tasks file for openssh
-
 - name: 'Include OS-specific variables'
   include_vars: '{{ distribution }}'
   with_first_found:

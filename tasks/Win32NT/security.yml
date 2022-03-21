@@ -1,5 +1,4 @@
 ---
-
 - name: 'Windows | Set up Firewall Rule for OpenSSH Server'
   win_dsc:
     resource_name: Firewall

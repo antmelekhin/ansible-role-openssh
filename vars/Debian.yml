@@ -1,5 +1,4 @@
 ---
-
 openssh__packages:
   - openssh-server
   - openssh-client

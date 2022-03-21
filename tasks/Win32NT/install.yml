@@ -1,5 +1,4 @@
 ---
-
 - name: 'Windows | Install required DSC modules'
   win_psmodule:
     name: '{{ item }}'

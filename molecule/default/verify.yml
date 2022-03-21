@@ -1,22 +1,19 @@
 ---
-# This is an example playbook to execute Ansible tests.
-
 - name: 'Verify'
   hosts: all
   gather_facts: false
   tasks:
+    - name: 'Gathering Service Facts'
+      service_facts:
 
-  - name: 'Gathering Service Facts'
-    service_facts:
+    - name: 'Assert that sshd service is enabled and running'
+      assert:
+        that:
+          - ansible_facts.services['sshd.service'].state == 'running' or
+            ansible_facts.services['sshd.service'].state == 'active'
+          - ansible_facts.services['sshd.service'].status == 'enabled'
 
-  - name: 'Assert that sshd service is enabled and running'
-    assert:
-      that:
-        - ansible_facts.services['sshd.service'].state == 'running' or
-          ansible_facts.services['sshd.service'].state == 'active'
-        - ansible_facts.services['sshd.service'].status == 'enabled'
-
-  - name: 'Check port'
-    wait_for:
-      port: 22
-      search_regex: 'OpenSSH'
+    - name: 'Check port'
+      wait_for:
+        port: 22
+        search_regex: 'OpenSSH'

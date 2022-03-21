@@ -1,5 +1,4 @@
 ---
-
 - name: 'Gathering Service Facts'
   service_facts:
 

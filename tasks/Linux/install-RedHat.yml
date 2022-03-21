@@ -1,5 +1,4 @@
 ---
-
 - name: 'RedHat | Install OpenSSH packages'
   yum:
     name: '{{ openssh__packages }}'

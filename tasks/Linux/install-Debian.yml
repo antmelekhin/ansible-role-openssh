@@ -1,5 +1,4 @@
 ---
-
 - name: 'Debian | Install OpenSSH packages'
   apt:
     name: '{{ openssh__packages }}'
