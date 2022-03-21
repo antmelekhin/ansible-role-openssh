@@ -1,6 +1,8 @@
 ---
 galaxy_info:
   author: Melekhin Anton
+  role_name: openssh
+  namespace: antmelekhin
   description: An Ansible role for configure OpenSSH.
   company: HOUSING ECOSYSTEM VTB LLC
 
