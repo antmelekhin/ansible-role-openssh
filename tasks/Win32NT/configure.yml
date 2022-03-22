@@ -16,5 +16,5 @@
 - name: 'Windows | Configure OpenSSH Server'
   win_template:
     src: sshd_config.j2
-    dest: C:\sshd_config
+    dest: C:\ProgramData\ssh\sshd_config
   notify: Windows | Restart SSHD
