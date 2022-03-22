@@ -39,28 +39,6 @@ PermitEmptyPasswords no
 # Change to no to disable s/key passwords
 ChallengeResponseAuthentication no
 
-# Never use host-based authentication. It can be exploited.
-HostbasedAuthentication no
-IgnoreUserKnownHosts yes
-IgnoreRhosts yes
-
-KerberosAuthentication {{ 'yes' if (openssh__sshd_kerberos_authentication | bool) else 'no' }}
-KerberosTicketCleanup {{ 'yes' if (openssh__sshd_kerberos_ticket_cleanup | bool) else 'no' }}
-#KerberosOrLocalPasswd yes
-#KerberosGetAFSToken no
-#KerberosUseKuserok yes
-
-GSSAPIAuthentication {{ 'yes' if (openssh__sshd_gssapi_authentication | bool) else 'no' }}
-GSSAPICleanupCredentials {{ 'yes' if (openssh__sshd_gssapi_cleanup_credentials | bool) else 'no' }}
-#GSSAPIStrictAcceptorCheck yes
-#GSSAPIKeyExchange no
-#GSSAPIEnablek5users no
-
-UsePAM {{ 'yes' if (openssh__sshd_password_authentication | bool) else 'no' }}
-StrictModes {{ 'yes' if (openssh__sshd_strict_modes | bool) else 'no' }}
-
-PermitRootLogin {{ 'yes' if (openssh__sshd_permit_root_login | bool) else 'no' }}
-
 #UseLogin no
 
 #========================================== NETWORK ============================================
@@ -74,33 +52,7 @@ AllowTcpForwarding yes
 
 GatewayPorts no
 
-X11Forwarding {{ 'yes' if (openssh__sshd_x11_forwarding | bool) else 'no' }}
-#X11DisplayOffset 10
-#X11UseLocalhost yes
-
-PermitTunnel no
-
-#======================================== ENVIRONMENT ==========================================
-
-PermitUserEnvironment no
-
-# Accept locale-related environment variables
-AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
-AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
-AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
-AcceptEnv XMODIFIERS
-
 #=========================================== MISC ==============================================
-
-# It is recommended to use pam_motd in /etc/pam.d/sshd instead of PrintMotd,
-# as it is more configurable and versatile than the built-in version.
-PrintMotd no
-
-PermitTTY yes
-PrintLastLog yes
-Compression delayed
-#PidFile /var/run/sshd.pid
-#ChrootDirectory none
 
 UseDNS {{ 'yes' if (openssh__sshd_use_dns | bool) else 'no' }}
 
@@ -112,3 +64,8 @@ UseDNS {{ 'yes' if (openssh__sshd_use_dns | bool) else 'no' }}
 {% for key, value in openssh__sshd_subsystems.items() %}
 Subsystem	{{ key }}	{{ value }}
 {% endfor %}
+
+# If the user belongs to the administrator group,
+# %programdata%/ssh/administrators_authorized_keys is used instead.
+Match Group administrators
+    AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys

@@ -7,7 +7,7 @@
 
 - name: 'Linux | Configure OpenSSH Server'
   ansible.builtin.template:
-    src: sshd_config.j2
+    src: sshd_config_Linux.j2
     dest: /etc/ssh/sshd_config
     owner: root
     group: root
