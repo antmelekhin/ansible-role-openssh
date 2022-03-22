@@ -7,12 +7,10 @@
 Protocol 2
 
 Port {{ openssh__sshd_port }}
-
-AddressFamily {{ 'any' if (openssh__sshd_ipv6_enable | bool) else 'inet' }}
-ListenAddress 0.0.0.0
-{% if openssh__sshd_ipv6_enable | bool %}
-ListenAddress ::
-{% endif %}
+AddressFamily {{ openssh__sshd_address_family }}
+{% for address in openssh__sshd_listen_addresses %}
+ListenAddress {{ address }}
+{% endfor %}
 
 {% for host_key in openssh__sshd_host_keys %}
 HostKey {{ openssh__sshd_host_keys_dir }}{{ host_key }}

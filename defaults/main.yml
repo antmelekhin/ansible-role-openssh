@@ -2,8 +2,13 @@
 # Порт поключения.
 openssh__sshd_port: 22
 
-# Использование протокола ipv6.
-openssh__sshd_ipv6_enable: true
+# Семейство адресов. Допустимые значения: 'any', 'inet' (только IPv4) и 'inet6' (только IPv6).
+openssh__sshd_address_family: 'any'
+
+# Указывает с каких локальных адресов sshd должен ожидать соединения.
+openssh__sshd_listen_addresses:
+  - '0.0.0.0'
+  - '::'
 
 # Закрытые ключи хоста.
 openssh__sshd_host_keys:
@@ -28,7 +33,7 @@ openssh__sshd_max_auth_tries: 4
 openssh__sshd_max_sessions: 10
 
 # Ограничение на количество одновременных соединений, в которых не был пройден этап аутентификации.
-openssh__sshd_max_startups: '10:30:100'
+openssh__sshd_max_startups: '10:30:60'
 
 # Файл с открытыми ключами, которые используются для аутентификации пользователей.
 openssh__sshd_authorized_keys_file: '.ssh/authorized_keys'
@@ -69,3 +74,5 @@ openssh__sshd_x11_forwarding: false
 
 # Выполнение запросов DNS для получения имени удалённого хоста, чтобы убедиться в том, что обратное преобразование выдаёт тот же самый IP-адрес.
 openssh__sshd_use_dns: false
+
+openssh__sshd_match: []
