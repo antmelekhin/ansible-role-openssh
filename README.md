@@ -27,7 +27,6 @@ Ansible роль для настройки OpenSSH сервера.
 
   ```yaml
   ---
-
   - name: 'Setup OpenSSH'
     hosts: all
 
@@ -35,6 +34,23 @@ Ansible роль для настройки OpenSSH сервера.
       - role: 'ansible-role-openssh'
         openssh__sshd_password_authentication: true
         openssh__sshd_gssapi_authentication: true
+  ```
+
+- Настраиваем OpenSSH сервер, включаем автоматическую аутентификацию (single sign-on) для группы пользователей.
+
+  ```yaml
+  ---
+  - name: 'Setup OpenSSH'
+    hosts: all
+
+    roles:
+      - role: 'ansible-role-openssh'
+        openssh__sshd_match:
+          - type: 'Group'
+            name: 'server_admins'
+            config:
+              PasswordAuthentication: 'yes'
+              GSSAPIAuthentication: 'yes'
   ```
 
 Лицензия
