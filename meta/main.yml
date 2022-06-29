@@ -8,23 +8,23 @@ galaxy_info:
 
   license: MIT
 
-  min_ansible_version: 2.7
+  min_ansible_version: '2.7'
 
   platforms:
     - name: EL
       versions:
-        - 7
-        - 8
+        - '7'
+        - '8'
     - name: Ubuntu
       versions:
-        - focal
+        - 'focal'
     - name: Debian
       versions:
-        - 10
+        - 'buster'
+        - 'bullseye'
     - name: Windows
       versions:
-        - 10
-        - 2019
+        - '2019'
 
   galaxy_tags:
     - openssh
