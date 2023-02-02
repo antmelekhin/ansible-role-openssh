@@ -75,4 +75,6 @@ openssh_sshd_x11_forwarding: false
 # Выполнение запросов DNS для получения имени удалённого хоста, чтобы убедиться в том, что обратное преобразование выдаёт тот же самый IP-адрес.
 openssh_sshd_use_dns: false
 
+openssh_sshd_subsystems: '{{ _openssh_sshd_subsystems }}'
+
 openssh_sshd_match: []

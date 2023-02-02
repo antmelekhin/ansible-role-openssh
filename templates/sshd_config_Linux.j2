@@ -104,7 +104,7 @@ UseDNS {{ 'yes' if (openssh_sshd_use_dns | bool) else 'no' }}
 #VersionAddendum none
 
 # override default of no subsystems
-{% for key, value in _openssh_sshd_subsystems.items() %}
+{% for key, value in openssh_sshd_subsystems.items() %}
 Subsystem	{{ key }}	{{ value }}
 {% endfor %}
 
