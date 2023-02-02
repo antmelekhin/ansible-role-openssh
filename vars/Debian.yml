@@ -1,9 +1,9 @@
 ---
-openssh__packages:
+_openssh_packages:
   - openssh-server
   - openssh-client
 
-openssh__sshd_host_keys_dir: '/etc/ssh/'
+_openssh_sshd_host_keys_dir: '/etc/ssh/'
 
-openssh__sshd_subsystems:
+_openssh_sshd_subsystems:
   sftp: '/usr/lib/openssh/sftp-server'

@@ -6,32 +6,32 @@
 
 Protocol 2
 
-Port {{ openssh__sshd_port }}
-AddressFamily {{ openssh__sshd_address_family }}
-{% for address in openssh__sshd_listen_addresses %}
+Port {{ openssh_sshd_port }}
+AddressFamily {{ openssh_sshd_address_family }}
+{% for address in openssh_sshd_listen_addresses %}
 ListenAddress {{ address }}
 {% endfor %}
 
-{% for host_key in openssh__sshd_host_keys %}
-HostKey {{ openssh__sshd_host_keys_dir }}{{ host_key }}
+{% for host_key in openssh_sshd_host_keys %}
+HostKey {{ _openssh_sshd_host_keys_dir }}{{ host_key }}
 {% endfor %}
 
 #========================================== LOGGING ============================================
 
-SyslogFacility {{ openssh__sshd_syslog_facility }}
-LogLevel {{ openssh__sshd_log_level }}
+SyslogFacility {{ openssh_sshd_syslog_facility }}
+LogLevel {{ openssh_sshd_log_level }}
 
 #======================================= AUTHENTICATION ========================================
 
-LoginGraceTime {{ openssh__sshd_login_grace_time }}
-MaxAuthTries {{ openssh__sshd_max_auth_tries }}
-MaxSessions {{ openssh__sshd_max_sessions }}
-MaxStartups {{ openssh__sshd_max_startups }}
+LoginGraceTime {{ openssh_sshd_login_grace_time }}
+MaxAuthTries {{ openssh_sshd_max_auth_tries }}
+MaxSessions {{ openssh_sshd_max_sessions }}
+MaxStartups {{ openssh_sshd_max_startups }}
 
 PubkeyAuthentication yes
-AuthorizedKeysFile {{ openssh__sshd_authorized_keys_file }}
+AuthorizedKeysFile {{ openssh_sshd_authorized_keys_file }}
 
-PasswordAuthentication {{ 'yes' if (openssh__sshd_password_authentication | bool) else 'no' }}
+PasswordAuthentication {{ 'yes' if (openssh_sshd_password_authentication | bool) else 'no' }}
 PermitEmptyPasswords no
 
 # Change to no to disable s/key passwords
@@ -42,37 +42,37 @@ HostbasedAuthentication no
 IgnoreUserKnownHosts yes
 IgnoreRhosts yes
 
-KerberosAuthentication {{ 'yes' if (openssh__sshd_kerberos_authentication | bool) else 'no' }}
-KerberosTicketCleanup {{ 'yes' if (openssh__sshd_kerberos_ticket_cleanup | bool) else 'no' }}
+KerberosAuthentication {{ 'yes' if (openssh_sshd_kerberos_authentication | bool) else 'no' }}
+KerberosTicketCleanup {{ 'yes' if (openssh_sshd_kerberos_ticket_cleanup | bool) else 'no' }}
 #KerberosOrLocalPasswd yes
 #KerberosGetAFSToken no
 #KerberosUseKuserok yes
 
-GSSAPIAuthentication {{ 'yes' if (openssh__sshd_gssapi_authentication | bool) else 'no' }}
-GSSAPICleanupCredentials {{ 'yes' if (openssh__sshd_gssapi_cleanup_credentials | bool) else 'no' }}
+GSSAPIAuthentication {{ 'yes' if (openssh_sshd_gssapi_authentication | bool) else 'no' }}
+GSSAPICleanupCredentials {{ 'yes' if (openssh_sshd_gssapi_cleanup_credentials | bool) else 'no' }}
 #GSSAPIStrictAcceptorCheck yes
 #GSSAPIKeyExchange no
 #GSSAPIEnablek5users no
 
 UsePAM yes
-StrictModes {{ 'yes' if (openssh__sshd_strict_modes | bool) else 'no' }}
+StrictModes {{ 'yes' if (openssh_sshd_strict_modes | bool) else 'no' }}
 
-PermitRootLogin {{ 'yes' if (openssh__sshd_permit_root_login | bool) else 'no' }}
+PermitRootLogin {{ 'yes' if (openssh_sshd_permit_root_login | bool) else 'no' }}
 
 #UseLogin no
 
 #========================================== NETWORK ============================================
 
-TCPKeepAlive {{ 'yes' if (openssh__sshd_tcp_keep_alive | bool) else 'no' }}
-ClientAliveInterval {{ openssh__sshd_client_alive_interval }}
-ClientAliveCountMax {{ openssh__sshd_client_alive_count_max }}
+TCPKeepAlive {{ 'yes' if (openssh_sshd_tcp_keep_alive | bool) else 'no' }}
+ClientAliveInterval {{ openssh_sshd_client_alive_interval }}
+ClientAliveCountMax {{ openssh_sshd_client_alive_count_max }}
 
 AllowAgentForwarding yes
 AllowTcpForwarding yes
 
 GatewayPorts no
 
-X11Forwarding {{ 'yes' if (openssh__sshd_x11_forwarding | bool) else 'no' }}
+X11Forwarding {{ 'yes' if (openssh_sshd_x11_forwarding | bool) else 'no' }}
 #X11DisplayOffset 10
 #X11UseLocalhost yes
 
@@ -97,18 +97,18 @@ Compression delayed
 #PidFile /var/run/sshd.pid
 #ChrootDirectory none
 
-UseDNS {{ 'yes' if (openssh__sshd_use_dns | bool) else 'no' }}
+UseDNS {{ 'yes' if (openssh_sshd_use_dns | bool) else 'no' }}
 
 # no default banner path
 #Banner none
 #VersionAddendum none
 
 # override default of no subsystems
-{% for key, value in openssh__sshd_subsystems.items() %}
+{% for key, value in _openssh_sshd_subsystems.items() %}
 Subsystem	{{ key }}	{{ value }}
 {% endfor %}
 
-{% for match in openssh__sshd_match %}
+{% for match in openssh_sshd_match %}
 Match {{ match.type }} {{ match.name }}
 {% for key, value in match.config.items() %}
     {{ key }} {{ value }}

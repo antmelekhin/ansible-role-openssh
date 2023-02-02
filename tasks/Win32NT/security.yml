@@ -7,7 +7,7 @@
     Name: 'OpenSSH-Server-In-TCP'
     Description: 'Inbound rule for OpenSSH SSH Server (sshd)'
     Program: 'C:\Windows\system32\OpenSSH\sshd.exe'
-    LocalPort: '{{ openssh__sshd_port }}'
+    LocalPort: '{{ openssh_sshd_port }}'
     Action: Allow
     Protocol: TCP
     Direction: Inbound

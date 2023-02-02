@@ -13,4 +13,4 @@
     resource_name: WindowsCapability
     Name: '{{ item }}'
     Ensure: Present
-  with_items: '{{ openssh__packages }}'
+  with_items: '{{ _openssh_packages }}'
