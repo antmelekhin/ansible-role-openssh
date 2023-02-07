@@ -18,7 +18,7 @@ HostKey {{ _openssh_sshd_host_keys_dir }}{{ host_key }}
 
 #========================================== LOGGING ============================================
 
-SyslogFacility {{ openssh_sshd_syslog_facility }}
+SyslogFacility AUTH
 LogLevel {{ openssh_sshd_log_level }}
 
 #======================================= AUTHENTICATION ========================================
