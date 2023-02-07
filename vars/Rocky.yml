@@ -1,0 +1,13 @@
+---
+_openssh_packages:
+  - openssh
+  - openssh-server
+  - openssh-clients
+
+_openssh_selinux_packages:
+  - policycoreutils-python-utils
+
+_openssh_sshd_host_keys_dir: '/etc/ssh/'
+
+_openssh_sshd_subsystems:
+  sftp: '/usr/libexec/openssh/sftp-server'

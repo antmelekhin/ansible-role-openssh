@@ -1,7 +1,0 @@
----
-- name: 'Debian | Install OpenSSH packages'
-  ansible.builtin.apt:
-    name: '{{ _openssh_packages }}'
-    state: present
-    update_cache: true
-  become: true
