@@ -11,7 +11,8 @@
         that:
           - ansible_facts.services['sshd.service'].state == 'running' or
             ansible_facts.services['sshd.service'].state == 'active'
-          - ansible_facts.services['sshd.service'].status == 'enabled'
+          - ansible_facts.services['sshd.service'].status == 'enabled' or
+            ansible_facts.services['ssh.service'].status == 'enabled'
 
     - name: 'Check port'
       ansible.builtin.wait_for:
