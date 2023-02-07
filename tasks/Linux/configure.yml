@@ -1,5 +1,6 @@
 ---
 - name: 'Linux | Configure and start OpenSSH'
+  become: true
   block:
     - name: 'Linux | Start OpenSSH Server'
       ansible.builtin.systemd:
@@ -24,4 +25,3 @@
         owner: root
         group: root
         mode: 0644
-  become: true

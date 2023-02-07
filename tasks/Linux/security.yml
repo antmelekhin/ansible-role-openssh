@@ -3,6 +3,8 @@
   ansible.builtin.service_facts:
 
 - name: 'Linux | Configure SELinux when is already installed'
+  when: ansible_selinux.status == 'enabled'
+  become: true
   block:
     - name: 'Linux | Install SELinux required packages'
       ansible.builtin.package:
@@ -15,8 +17,6 @@
         proto: tcp
         setype: ssh_port_t
         state: present
-  when: ansible_selinux.status == 'enabled'
-  become: true
 
 - name: 'Linux | Allow SSHD port in FirewallD'
   firewalld:
