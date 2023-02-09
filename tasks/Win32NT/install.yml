@@ -1,10 +1,17 @@
 ---
+- name: 'Windows | Ensure the required NuGet package provider version is installed'
+  win_shell: Find-PackageProvider -Name Nuget -ForceBootstrap -IncludeDependencies -Force
+  failed_when: false
+  changed_when: false
+
 - name: 'Windows | Install required DSC modules'
   win_psmodule:
     name: '{{ item }}'
     repository: PSGallery
+    accept_license: true
     state: present
-  with_items:
+  loop:
+    - PowerShellGet
     - ComputerManagementDsc
     - NetworkingDsc
 
@@ -13,4 +20,4 @@
     resource_name: WindowsCapability
     Name: '{{ item }}'
     Ensure: Present
-  with_items: '{{ _openssh_packages }}'
+  loop: '{{ _openssh_packages }}'
