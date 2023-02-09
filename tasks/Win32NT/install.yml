@@ -14,6 +14,7 @@
     - PowerShellGet
     - ComputerManagementDsc
     - NetworkingDsc
+  when: not ansible_check_mode
 
 - name: 'Windows | Install OpenSSH packages'
   win_dsc:
@@ -21,3 +22,4 @@
     Name: '{{ item }}'
     Ensure: Present
   loop: '{{ _openssh_packages }}'
+  when: not ansible_check_mode
