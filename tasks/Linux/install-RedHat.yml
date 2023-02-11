@@ -1,5 +1,0 @@
----
-- name: 'RedHat | Install OpenSSH packages'
-  ansible.builtin.package:
-    name: '{{ openssh__packages }}'
-    state: present

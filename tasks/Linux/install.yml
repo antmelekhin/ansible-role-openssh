@@ -1,0 +1,16 @@
+---
+- name: 'Install OpenSSH packages'
+  become: true
+  block:
+    - name: 'Debian | Install OpenSSH packages'
+      ansible.builtin.apt:
+        name: '{{ _openssh_packages }}'
+        state: present
+        update_cache: true
+      when: ansible_os_family == 'Debian'
+
+    - name: 'RedHat | Install OpenSSH packages'
+      ansible.builtin.package:
+        name: '{{ _openssh_packages }}'
+        state: present
+      when: ansible_os_family == 'RedHat' or ansible_os_family == 'Rocky'

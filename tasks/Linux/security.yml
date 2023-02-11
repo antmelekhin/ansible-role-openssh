@@ -3,26 +3,28 @@
   ansible.builtin.service_facts:
 
 - name: 'Linux | Configure SELinux when is already installed'
+  when: ansible_selinux.status == 'enabled'
+  become: true
   block:
     - name: 'Linux | Install SELinux required packages'
       ansible.builtin.package:
-        name: '{{ openssh__selinux_packages }}'
+        name: '{{ _openssh_selinux_packages }}'
         state: present
 
     - name: 'Linux | Allow SSHD port in SELinux'
       seport:
-        ports: '{{ openssh__sshd_port }}'
+        ports: '{{ openssh_sshd_port }}'
         proto: tcp
         setype: ssh_port_t
         state: present
-  when: ansible_selinux.status == 'enabled'
 
 - name: 'Linux | Allow SSHD port in FirewallD'
   firewalld:
-    port: '{{ openssh__sshd_port }}/tcp'
+    port: '{{ openssh_sshd_port }}/tcp'
     state: enabled
     permanent: true
     immediate: true
   when:
     - services['firewalld.service'] is defined
     - services['firewalld.service'].state == 'running'
+  become: true

@@ -1,0 +1,13 @@
+---
+- name: 'Verify'
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: 'Check if a service is running'
+      win_service:
+        name: sshd
+      register: _sshd_service
+
+    - name: 'Assert that winlogbeat package is installed'
+      ansible.builtin.assert:
+        that: "'running' in _sshd_service.state"
