@@ -9,7 +9,7 @@ lint: |
   ansible-lint
 platforms:
   - name: instance
-    box: 'antmelekhin/windows-2019-core'
+    box: 'antmelekhin/windows-2019-standardcore'
 provisioner:
   name: ansible
   inventory:
@@ -24,7 +24,5 @@ provisioner:
         ansible_winrm_transport: ntlm
         ansible_winrm_server_cert_validation: ignore
         ansible_become: false
-  playbooks:
-    verify: ../resources/tests/win_verify.yml
 verifier:
   name: ansible
