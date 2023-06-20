@@ -13,7 +13,7 @@ ListenAddress {{ address }}
 {% endfor %}
 
 {% for host_key in openssh_sshd_host_keys %}
-HostKey {{ _openssh_sshd_host_keys_dir }}{{ host_key }}
+HostKey {{ openssh_sshd_host_keys_dir }}{{ host_key }}
 {% endfor %}
 
 #========================================== LOGGING ============================================

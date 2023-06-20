@@ -35,7 +35,7 @@ Role Variables
   - `inet6` (use IPv6 only)
 
 - `openssh_sshd_listen_addresses` Specifies the local addresses sshd should listen on.
-- `openssh_sshd_host_keys` Specifies a file containing a private host key used by sshd.
+- `openssh_sshd_host_keys_dir` and `openssh_sshd_host_keys` Specifies a file containing a private host key used by sshd.
 - `openssh_sshd_syslog_facility` Gives the facility code that is used when logging messages from sshd (default: `AUTH`).
 - `openssh_sshd_log_level` Gives the verbosity level that is used when logging messages from sshd (default: `INFO`).
 - `openssh_sshd_login_grace_time` The server disconnects after this time if the user has not successfully logged in. (default: `1m`).
