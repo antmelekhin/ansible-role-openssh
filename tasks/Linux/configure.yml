@@ -2,7 +2,7 @@
 - name: 'Linux | Configure and start OpenSSH'
   become: true
   block:
-    - name: 'Linux | Start OpenSSH Server'
+    - name: 'Linux | Ensure OpenSSH is running and enabled at boot'
       ansible.builtin.systemd:
         name: sshd
         enabled: true

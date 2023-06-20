@@ -1,5 +1,5 @@
 ---
-- name: 'Windows | Start OpenSSH Server'
+- name: 'Windows | Ensure OpenSSH is running and enabled at boot'
   win_service:
     name: sshd
     start_mode: auto
