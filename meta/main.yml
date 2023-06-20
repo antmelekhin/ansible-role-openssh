@@ -10,17 +10,20 @@ galaxy_info:
   min_ansible_version: '2.9'
 
   platforms:
-    - name: EL
-      versions:
-        - '7'
-        - '8'
-    - name: Ubuntu
-      versions:
-        - 'focal'
     - name: Debian
       versions:
         - 'buster'
         - 'bullseye'
+    - name: EL
+      versions:
+        - '7'
+        - '8'
+        - '9'
+    - name: Ubuntu
+      versions:
+        - 'bionic'
+        - 'focal'
+        - 'jammy'
     - name: Windows
       versions:
         - '2019'
