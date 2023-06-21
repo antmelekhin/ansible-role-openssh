@@ -13,6 +13,3 @@
 
 - name: 'Include OS-specific tasks for Configure OpenSSH'
   ansible.builtin.include_tasks: '{{ ansible_system }}/configure.yml'
-
-- name: 'Include OS-specific security settings tasks'
-  ansible.builtin.include_tasks: '{{ ansible_system }}/security.yml'
