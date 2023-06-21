@@ -2,7 +2,7 @@
 - name: 'Include OS-specific variables'
   ansible.builtin.include_vars: '{{ distribution }}'
   with_first_found:
-    - '{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml'
+    - '{{ ansible_distribution_file_variety }}.yml'
     - '{{ ansible_distribution }}.yml'
     - '{{ ansible_os_family }}.yml'
   loop_control:

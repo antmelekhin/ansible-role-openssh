@@ -4,9 +4,6 @@ _openssh_packages:
   - openssh-server
   - openssh-clients
 
-_openssh_selinux_packages:
-  - policycoreutils-python
-
 _openssh_sshd_host_keys_dir: '/etc/ssh/'
 
 _openssh_sshd_subsystems:

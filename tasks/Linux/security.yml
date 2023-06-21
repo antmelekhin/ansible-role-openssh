@@ -8,7 +8,9 @@
   block:
     - name: 'Linux | Install SELinux required packages'
       ansible.builtin.package:
-        name: '{{ _openssh_selinux_packages }}'
+        name: "{{ ['policycoreutils-python']
+          if ansible_python_version is version('3', '<')
+          else ['policycoreutils-python-utils'] }}"
         state: present
 
     - name: 'Linux | Allow SSHD port in SELinux'
