@@ -18,3 +18,20 @@
     src: 'sshd_config_Win32NT.j2'
     dest: 'C:\ProgramData\ssh\sshd_config'
   notify: Windows | Restart SSHD
+
+- name: 'Windows | Set up Firewall Rule for OpenSSH Server'
+  win_dsc:
+    resource_name: Firewall
+    Group: 'OpenSSH Server'
+    DisplayName: 'OpenSSH Server (sshd)'
+    Name: 'OpenSSH-Server-In-TCP'
+    Description: 'Inbound rule for OpenSSH SSH Server (sshd)'
+    Program: 'C:\Windows\system32\OpenSSH\sshd.exe'
+    LocalPort: '{{ openssh_sshd_port }}'
+    Action: Allow
+    Protocol: TCP
+    Direction: Inbound
+    Profile: Domain, Private
+    Enabled: true
+    Ensure: Present
+  when: not ansible_check_mode
