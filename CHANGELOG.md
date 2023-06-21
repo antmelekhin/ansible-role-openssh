@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.1.0...v1.1.1) (2023-06-21)
+
+
+### Fixes
+
+* rm security task ([43d59dd](https://github.com/antmelekhin/ansible-role-openssh/commit/43d59dd2aeb66b616f6b339a4a35395c588ded5c))
+
 ## [1.1.0](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.0.0...v1.1.0) (2023-06-21)
 
 
