@@ -16,7 +16,7 @@
         group: root
         mode: 0644
         validate: /usr/sbin/sshd -T -C user=root -C host=localhost -C addr=localhost -f %s
-      notify: Linux | Restart SSHD
+      notify: 'Linux | Restart SSHD'
 
     - name: 'Linux | Configure OpenSSH Client'
       ansible.builtin.template:
