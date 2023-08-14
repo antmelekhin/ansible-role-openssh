@@ -12,6 +12,7 @@ Requirements
   - Debian
     - 10
     - 11
+    - 12
   - RHEL
     - 7
     - 8
