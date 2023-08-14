@@ -55,6 +55,7 @@ Role Variables
 - `openssh_sshd_client_alive_interval` Sets a timeout interval in seconds after which if no data has been received from the client (default: `0`).
 - `openssh_sshd_client_alive_count_max` Sets the number of client alive messages which may be sent without sshd receiving any messages back from the client (default: `3`).
 - `openssh_sshd_x11_forwarding` Specifies whether X11 forwarding is permitted. Not applicable in Windows (default: `false`).
+- Controlling which users and groups can connect to the server is done using the `openssh_sshd_allow_groups`, `openssh_sshd_allow_users`, `openssh_sshd_deny_groups`, and `openssh_sshd_deny_users` lists (default: `[]`).
 - `openssh_sshd_use_dns` Specifies whether sshd should look up the remote host name, and to check that the resolved host name for the remote IP address maps back to the very same IP address. (default: `false`).
 - `openssh_sshd_subsystems` Configures an external subsystem (e.g. file transfer daemon).
 

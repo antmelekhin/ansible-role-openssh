@@ -108,6 +108,22 @@ UseDNS {{ 'yes' if (openssh_sshd_use_dns | bool) else 'no' }}
 Subsystem	{{ key }}	{{ value }}
 {% endfor %}
 
+{% if openssh_sshd_allow_groups | length %}
+AllowGroups {{ openssh_sshd_allow_groups | join(' ') }}
+{% endif %}
+
+{% if openssh_sshd_allow_users | length %}
+AllowUsers {{ openssh_sshd_allow_users | join(' ') }}
+{% endif %}
+
+{% if openssh_sshd_deny_groups | length %}
+DenyGroups {{ openssh_sshd_deny_groups | join(' ') }}
+{% endif %}
+
+{% if openssh_sshd_deny_users | length %}
+DenyUsers {{ openssh_sshd_deny_users | join(' ') }}
+{% endif %}
+
 {% for match in openssh_sshd_match %}
 Match {{ match.type }} {{ match.name }}
 {% for key, value in match.config.items() %}

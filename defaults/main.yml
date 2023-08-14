@@ -35,9 +35,13 @@ openssh_sshd_permit_root_login: false
 openssh_sshd_tcp_keep_alive: false
 openssh_sshd_client_alive_interval: 0
 openssh_sshd_client_alive_count_max: 3
+openssh_sshd_x11_forwarding: false
 
 # Misc
-openssh_sshd_x11_forwarding: false
+openssh_sshd_allow_groups: []
+openssh_sshd_allow_users: []
+openssh_sshd_deny_groups: []
+openssh_sshd_deny_users: []
 openssh_sshd_use_dns: false
 openssh_sshd_subsystems: '{{ _openssh_sshd_subsystems }}'
 openssh_sshd_match: []
