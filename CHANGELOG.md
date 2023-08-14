@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.2.0](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.1.1...v1.2.0) (2023-08-14)
+
+
+### Continuous Integration
+
+* update distros matrix ([0a09ec5](https://github.com/antmelekhin/ansible-role-openssh/commit/0a09ec5611868a185240ec0fcbc88cc262376897))
+
+
+### Features
+
+* add `Allow*` and `Deny*` directives to sshd_config ([fead95b](https://github.com/antmelekhin/ansible-role-openssh/commit/fead95be98e25058a58e3eba70eb69fe9ebed98d))
+
+
+### Styles
+
+* add quotes in notify name ([70dcdf6](https://github.com/antmelekhin/ansible-role-openssh/commit/70dcdf616c19a072c666ff857155aa1252a85897))
+
 ## [1.1.1](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.1.0...v1.1.1) (2023-06-21)
 
 
