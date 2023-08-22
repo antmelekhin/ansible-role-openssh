@@ -1,12 +1,6 @@
 ---
 - name: 'Include OS-specific variables'
-  ansible.builtin.include_vars: '{{ distribution }}'
-  with_first_found:
-    - '{{ ansible_distribution_file_variety }}.yml'
-    - '{{ ansible_distribution }}.yml'
-    - '{{ ansible_os_family }}.yml'
-  loop_control:
-    loop_var: distribution
+  ansible.builtin.include_vars: '{{ ansible_os_family }}.yml'
 
 - name: 'Include OS-specific tasks for Installing OpenSSH'
   ansible.builtin.include_tasks: '{{ ansible_system }}/install.yml'

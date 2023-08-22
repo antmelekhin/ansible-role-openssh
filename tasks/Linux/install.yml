@@ -13,10 +13,4 @@
       ansible.builtin.package:
         name: '{{ _openssh_packages }}'
         state: present
-      when: >-
-        ansible_distribution in [
-          'CentOS',
-          'Red Hat Enterprise Linux',
-          'RedHat',
-          'Rocky'
-        ]
+      when: ansible_os_family == 'RedHat'
