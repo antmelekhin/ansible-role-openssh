@@ -1,11 +1,11 @@
 ---
 - name: 'Windows | Ensure the required NuGet package provider version is installed'
-  win_shell: Find-PackageProvider -Name Nuget -ForceBootstrap -IncludeDependencies -Force
+  ansible.windows.win_shell: Find-PackageProvider -Name Nuget -ForceBootstrap -IncludeDependencies -Force
   failed_when: false
   changed_when: false
 
 - name: 'Windows | Install required DSC modules'
-  win_psmodule:
+  community.windows.win_psmodule:
     name: '{{ item }}'
     repository: PSGallery
     accept_license: true
@@ -17,7 +17,7 @@
   when: not ansible_check_mode
 
 - name: 'Windows | Install OpenSSH packages'
-  win_dsc:
+  ansible.windows.win_dsc:
     resource_name: WindowsCapability
     Name: '{{ item }}'
     Ensure: Present

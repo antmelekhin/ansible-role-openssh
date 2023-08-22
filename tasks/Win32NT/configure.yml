@@ -1,12 +1,12 @@
 ---
 - name: 'Windows | Ensure OpenSSH is running and enabled at boot'
-  win_service:
+  ansible.windows.win_service:
     name: sshd
     start_mode: auto
     state: started
 
 - name: 'Windows | Set Powershell as default shell'
-  win_regedit:
+  ansible.windows.win_regedit:
     path: 'HKLM:\SOFTWARE\OpenSSH'
     name: DefaultShell
     data: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
@@ -14,13 +14,13 @@
     state: present
 
 - name: 'Windows | Configure OpenSSH Server'
-  win_template:
+  ansible.windows.win_template:
     src: 'sshd_config_Win32NT.j2'
     dest: 'C:\ProgramData\ssh\sshd_config'
   notify: 'Windows | Restart SSHD'
 
 - name: 'Windows | Set up Firewall Rule for OpenSSH Server'
-  win_dsc:
+  ansible.windows.win_dsc:
     resource_name: Firewall
     Group: 'OpenSSH Server'
     DisplayName: 'OpenSSH Server (sshd)'

@@ -38,7 +38,7 @@
         state: present
 
     - name: 'Linux | Allow SSHD port in SELinux'
-      seport:
+      community.general.seport:
         ports: '{{ openssh_sshd_port }}'
         proto: tcp
         setype: ssh_port_t
