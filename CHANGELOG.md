@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.3.0](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.2.0...v1.3.0) (2023-08-22)
+
+
+### Fixes
+
+* add fqcn for all modules ([7874196](https://github.com/antmelekhin/ansible-role-openssh/commit/7874196dd2a34b5dd068de76f77fdd986a339cb5))
+
+
+### Improvements
+
+* distribution select ([bf084e1](https://github.com/antmelekhin/ansible-role-openssh/commit/bf084e19ca71310becc1e41f84e4eeb55ba236eb))
+
+
+### Tests
+
+* add tox ([1038302](https://github.com/antmelekhin/ansible-role-openssh/commit/10383023ff9efa6c3572b7fc7bb7e6bc1e25e487))
+* fix box image ([6198aae](https://github.com/antmelekhin/ansible-role-openssh/commit/6198aaed0ccb6698953cb368fc321ac9513265df))
+
 ## [1.2.0](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.1.1...v1.2.0) (2023-08-14)
 
 
