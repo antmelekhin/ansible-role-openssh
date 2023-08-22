@@ -1,6 +1,7 @@
 ---
 dependency:
   name: galaxy
+  enabled: true
 driver:
   name: vagrant
 lint: |
@@ -9,7 +10,7 @@ lint: |
   ansible-lint
 platforms:
   - name: instance
-    box: 'antmelekhin/windows-2019-standardcore'
+    box: 'jborean93/WindowsServer2019'
 provisioner:
   name: ansible
   inventory:
