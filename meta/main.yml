@@ -2,7 +2,7 @@
 galaxy_info:
   author: antmelekhin
   role_name: openssh
-  description: An Ansible role for configure OpenSSH.
+  description: An Ansible role to configure OpenSSH server and client.
 
   license: MIT
 
