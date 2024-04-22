@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.3.1](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.3.0...v1.3.1) (2024-04-22)
+
+
+### Code Refactoring
+
+* minor fixes ([#4](https://github.com/antmelekhin/ansible-role-openssh/issues/4)) ([12db0bc](https://github.com/antmelekhin/ansible-role-openssh/commit/12db0bc4d1f48cd12f3514b5631403de79f43a63))
+
+
+### Continuous Integration
+
+* update release rules ([b830687](https://github.com/antmelekhin/ansible-role-openssh/commit/b8306874b24fcf7df433cebbb6c39629bba97396))
+* update workflows ([b6250ec](https://github.com/antmelekhin/ansible-role-openssh/commit/b6250ec4b08c19aa535721af8f0906843c5cedae))
+* **fix:** add requirements.yml that resolvs dependencies for molecule action ([#3](https://github.com/antmelekhin/ansible-role-openssh/issues/3)) ([5fbb0d2](https://github.com/antmelekhin/ansible-role-openssh/commit/5fbb0d2e556f9caf948ae5c09bb2c19f38944c18))
+
+
+### Tests
+
+* fix molecule container name ([5979445](https://github.com/antmelekhin/ansible-role-openssh/commit/59794450d137e887838446c2a9bdb59ddca720df))
+
 ## [1.3.0](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.2.0...v1.3.0) (2023-08-22)
 
 
