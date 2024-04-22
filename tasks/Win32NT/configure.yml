@@ -1,17 +1,17 @@
 ---
 - name: 'Windows | Ensure OpenSSH is running and enabled at boot'
   ansible.windows.win_service:
-    name: sshd
-    start_mode: auto
-    state: started
+    name: 'sshd'
+    start_mode: 'auto'
+    state: 'started'
 
 - name: 'Windows | Set Powershell as default shell'
   ansible.windows.win_regedit:
     path: 'HKLM:\SOFTWARE\OpenSSH'
-    name: DefaultShell
+    name: 'DefaultShell'
     data: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
-    type: string
-    state: present
+    type: 'string'
+    state: 'present'
 
 - name: 'Windows | Configure OpenSSH Server'
   ansible.windows.win_template:
@@ -28,10 +28,10 @@
     Description: 'Inbound rule for OpenSSH SSH Server (sshd)'
     Program: 'C:\Windows\system32\OpenSSH\sshd.exe'
     LocalPort: '{{ openssh_sshd_port }}'
-    Action: Allow
-    Protocol: TCP
-    Direction: Inbound
-    Profile: Domain, Private
+    Action: 'Allow'
+    Protocol: 'TCP'
+    Direction: 'Inbound'
+    Profile: 'Domain, Private'
     Enabled: true
-    Ensure: Present
+    Ensure: 'Present'
   when: not ansible_check_mode

@@ -5,7 +5,7 @@
   tasks:
     - name: 'Check if a service is running'
       ansible.windows.win_service:
-        name: sshd
+        name: 'sshd'
       register: _sshd_service
 
     - name: 'Assert that winlogbeat package is installed'
