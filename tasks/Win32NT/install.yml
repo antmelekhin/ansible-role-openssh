@@ -1,25 +1,25 @@
 ---
 - name: 'Windows | Ensure the required NuGet package provider version is installed'
-  ansible.windows.win_shell: Find-PackageProvider -Name Nuget -ForceBootstrap -IncludeDependencies -Force
+  ansible.windows.win_shell: 'Find-PackageProvider -Name Nuget -ForceBootstrap -IncludeDependencies -Force'
   failed_when: false
   changed_when: false
 
 - name: 'Windows | Install required DSC modules'
   community.windows.win_psmodule:
     name: '{{ item }}'
-    repository: PSGallery
+    repository: 'PSGallery'
     accept_license: true
-    state: present
+    state: 'present'
   loop:
-    - PowerShellGet
-    - ComputerManagementDsc
-    - NetworkingDsc
+    - 'PowerShellGet'
+    - 'ComputerManagementDsc'
+    - 'NetworkingDsc'
   when: not ansible_check_mode
 
 - name: 'Windows | Install OpenSSH packages'
   ansible.windows.win_dsc:
-    resource_name: WindowsCapability
+    resource_name: 'WindowsCapability'
     Name: '{{ item }}'
-    Ensure: Present
+    Ensure: 'Present'
   loop: '{{ _openssh_packages }}'
   when: not ansible_check_mode

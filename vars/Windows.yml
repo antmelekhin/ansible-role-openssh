@@ -1,9 +1,7 @@
 ---
 _openssh_packages:
-  - OpenSSH.Server~~~~0.0.1.0
-  - OpenSSH.Client~~~~0.0.1.0
-
-_openssh_sshd_host_keys_dir: '__PROGRAMDATA__/ssh/'
+  - 'OpenSSH.Server~~~~0.0.1.0'
+  - 'OpenSSH.Client~~~~0.0.1.0'
 
 _openssh_sshd_subsystems:
   sftp: 'C:\Windows\System32\OpenSSH\sftp-server.exe'

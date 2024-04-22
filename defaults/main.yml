@@ -7,11 +7,10 @@ openssh_sshd_listen_addresses:
   - '0.0.0.0'
   - '::'
 
-openssh_sshd_host_keys_dir: '{{ _openssh_sshd_host_keys_dir }}'
 openssh_sshd_host_keys:
-  - ssh_host_rsa_key
-  - ssh_host_ecdsa_key
-  - ssh_host_ed25519_key
+  - 'ssh_host_rsa_key'
+  - 'ssh_host_ecdsa_key'
+  - 'ssh_host_ed25519_key'
 
 # Logging
 openssh_sshd_syslog_facility: 'AUTH'

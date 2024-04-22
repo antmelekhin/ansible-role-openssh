@@ -4,26 +4,26 @@
   block:
     - name: 'Linux | Ensure OpenSSH is running and enabled at boot'
       ansible.builtin.systemd:
-        name: sshd
+        name: 'sshd'
+        state: 'started'
         enabled: true
-        state: started
 
     - name: 'Linux | Configure OpenSSH Server'
       ansible.builtin.template:
         src: 'sshd_config_Linux.j2'
         dest: '/etc/ssh/sshd_config'
-        owner: root
-        group: root
+        owner: 'root'
+        group: 'root'
         mode: 0644
-        validate: /usr/sbin/sshd -T -C user=root -C host=localhost -C addr=localhost -f %s
+        validate: '/usr/sbin/sshd -T -C user=root -C host=localhost -C addr=localhost -f %s'
       notify: 'Linux | Restart SSHD'
 
     - name: 'Linux | Configure OpenSSH Client'
       ansible.builtin.template:
         src: 'ssh_config_Linux.j2'
         dest: '/etc/ssh/ssh_config'
-        owner: root
-        group: root
+        owner: 'root'
+        group: 'root'
         mode: 0644
 
 - name: 'Linux | Configure SELinux when is already installed'
@@ -35,11 +35,11 @@
         name: "{{ ['policycoreutils-python']
           if ansible_python_version is version('3', '<')
           else ['policycoreutils-python-utils'] }}"
-        state: present
+        state: 'present'
 
     - name: 'Linux | Allow SSHD port in SELinux'
       community.general.seport:
         ports: '{{ openssh_sshd_port }}'
-        proto: tcp
-        setype: ssh_port_t
-        state: present
+        proto: 'tcp'
+        setype: 'ssh_port_t'
+        state: 'present'

@@ -1,9 +1,9 @@
 ---
-- name: 'Include OS-specific variables'
+- name: 'Include OS-specific OpenSSH variables'
   ansible.builtin.include_vars: '{{ ansible_os_family }}.yml'
 
-- name: 'Include OS-specific tasks for Installing OpenSSH'
+- name: 'Include tasks to install OpenSSH'
   ansible.builtin.include_tasks: '{{ ansible_system }}/install.yml'
 
-- name: 'Include OS-specific tasks for Configure OpenSSH'
+- name: 'Include tasks to configure OpenSSH'
   ansible.builtin.include_tasks: '{{ ansible_system }}/configure.yml'

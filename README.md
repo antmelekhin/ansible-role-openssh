@@ -1,7 +1,7 @@
 OpenSSH
 =======
 
-An Ansible role for configure OpenSSH server and client.
+An Ansible role to configure OpenSSH server and client.
 
 Requirements
 ------------
