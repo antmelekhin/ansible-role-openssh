@@ -74,35 +74,35 @@ None.
 Example Playbook
 ----------------
 
-- Configure OpenSSH server and enable single sign-on.
+Configure OpenSSH server and enable single sign-on.
 
-  ```yaml
-  ---
-  - name: 'Setup OpenSSH'
-    hosts: all
+```yaml
+---
+- name: 'Setup OpenSSH'
+  hosts: all
 
-    roles:
-      - role: 'antmelekhin.openssh'
-        openssh_sshd_password_authentication: true
-        openssh_sshd_gssapi_authentication: true
-  ```
+  roles:
+    - role: 'antmelekhin.openssh'
+      openssh_sshd_password_authentication: true
+      openssh_sshd_gssapi_authentication: true
+```
 
-- Configure OpenSSH server and enable single sign-on for server_admins group.
+Configure OpenSSH server and enable single sign-on for server_admins group.
 
-  ```yaml
-  ---
-  - name: 'Setup OpenSSH'
-    hosts: all
+```yaml
+---
+- name: 'Setup OpenSSH'
+  hosts: all
 
-    roles:
-      - role: 'antmelekhin.openssh'
-        openssh_sshd_match:
-          - type: 'Group'
-            name: 'server_admins'
-            config:
-              PasswordAuthentication: 'yes'
-              GSSAPIAuthentication: 'yes'
-  ```
+  roles:
+    - role: 'antmelekhin.openssh'
+      openssh_sshd_match:
+        - type: 'Group'
+          name: 'server_admins'
+          config:
+            PasswordAuthentication: 'yes'
+            GSSAPIAuthentication: 'yes'
+```
 
 License
 -------
