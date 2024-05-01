@@ -5,9 +5,11 @@
     - name: 'Debian | Install OpenSSH packages'
       ansible.builtin.apt:
         name: '{{ _openssh_packages }}'
-        state: 'present'
         update_cache: true
-      when: ansible_os_family == 'Debian'
+        state: 'present'
+      when:
+        - not ansible_check_mode
+        - ansible_os_family == 'Debian'
 
     - name: 'RedHat | Install OpenSSH packages'
       ansible.builtin.package:

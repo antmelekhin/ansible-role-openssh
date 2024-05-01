@@ -7,6 +7,7 @@
         name: 'sshd'
         state: 'started'
         enabled: true
+      when: not ansible_check_mode
 
     - name: 'Linux | Configure OpenSSH Server'
       ansible.builtin.template:
