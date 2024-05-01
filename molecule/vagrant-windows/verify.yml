@@ -6,8 +6,8 @@
     - name: 'Check if a service is running'
       ansible.windows.win_service:
         name: 'sshd'
-      register: _sshd_service
+      register: __sshd_service
 
     - name: 'Assert that winlogbeat package is installed'
       ansible.builtin.assert:
-        that: "'running' in _sshd_service.state"
+        that: "'running' in __sshd_service.state"
