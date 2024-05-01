@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.3.2](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.3.1...v1.3.2) (2024-05-01)
+
+
+### Documentation
+
+* **README:** fixed examples view for Ansible Galaxy ([98a027b](https://github.com/antmelekhin/ansible-role-openssh/commit/98a027bad6195365349caf662c3e3002e23bbeac))
+
+
+### Fixes
+
+* fixed running a role in check_mode ([e55dfde](https://github.com/antmelekhin/ansible-role-openssh/commit/e55dfde0bc9fb7a0e27c3ad714b020e02222519a))
+
+
+### Styles
+
+* add newline to end of file ([67b4ffb](https://github.com/antmelekhin/ansible-role-openssh/commit/67b4ffb69b89fb2d6d6db58c7e14c88a7f83d32f))
+* use double underline in register variable ([55d12b4](https://github.com/antmelekhin/ansible-role-openssh/commit/55d12b494e686e8bd01f3dfb4b1581d87b60868d))
+
+
+### Tests
+
+* add .tox as ignore ([5848152](https://github.com/antmelekhin/ansible-role-openssh/commit/5848152a42347d5e920786ee5b4fcebe94e1bf2e))
+* add role_name prefix to instance name ([39b5742](https://github.com/antmelekhin/ansible-role-openssh/commit/39b5742da866a612ce729613c38a4f07df8fa656))
+* run linters in its own workflow ([2d0f63a](https://github.com/antmelekhin/ansible-role-openssh/commit/2d0f63a5627bcff21734e7b268b96a863f32746f))
+
 ## [1.3.1](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.3.0...v1.3.1) (2024-04-22)
 
 
