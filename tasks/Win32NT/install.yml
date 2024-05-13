@@ -4,7 +4,7 @@
   failed_when: false
   changed_when: false
 
-- name: 'Windows | Install required DSC modules'
+- name: 'Windows | Install the required DSC modules'
   community.windows.win_psmodule:
     name: '{{ item }}'
     repository: 'PSGallery'
