@@ -27,6 +27,8 @@ Requirements
 Role Variables
 --------------
 
+Variables used to configure the OpenSSH server:
+
 - `openssh_sshd_port` Specifies the port number that sshd listens on. (default: `22`).
 - `openssh_sshd_address_family` Specifies which address family should be used by sshd.
 
