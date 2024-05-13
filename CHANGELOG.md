@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.3](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.3.2...v1.3.3) (2024-05-13)
+
+
+### Documentation
+
+* **README:** update variables documentation ([a4607e1](https://github.com/antmelekhin/ansible-role-openssh/commit/a4607e127c423d7b4c172f11ee13f5db28529575))
+
+
+### Styles
+
+* rename tasks ([4c45ae6](https://github.com/antmelekhin/ansible-role-openssh/commit/4c45ae6116851e9ef2cad1fdfb7ee36b1623cad0))
+
 ## [1.3.2](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.3.1...v1.3.2) (2024-05-01)
 
 
