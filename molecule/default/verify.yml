@@ -6,7 +6,7 @@
     - name: 'Gathering Service Facts'
       ansible.builtin.service_facts:
 
-    - name: 'Assert that sshd service is enabled and running'
+    - name: 'Assert that OpenSSH Server is enabled and running'
       ansible.builtin.assert:
         that:
           - ansible_facts.services['sshd.service'].state == 'running' or

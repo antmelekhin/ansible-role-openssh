@@ -3,11 +3,11 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: 'Check if a service is running'
+    - name: 'Check if OpenSSH Server is installed'
       ansible.windows.win_service:
         name: 'sshd'
       register: __sshd_service
 
-    - name: 'Assert that winlogbeat package is installed'
+    - name: 'Assert that OpenSSH Server is enabled and running'
       ansible.builtin.assert:
         that: "'running' in __sshd_service.state"
