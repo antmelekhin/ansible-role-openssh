@@ -1,39 +1,39 @@
 ---
 galaxy_info:
-  author: antmelekhin
-  role_name: openssh
-  description: An Ansible role to configure OpenSSH server and client.
+  author: 'antmelekhin'
+  role_name: 'openssh'
+  description: 'An Ansible role to configure the OpenSSH server and client.'
 
-  license: MIT
+  license: 'MIT'
 
   min_ansible_version: '2.12'
 
   platforms:
-    - name: Debian
+    - name: 'Debian'
       versions:
         - 'buster'
         - 'bullseye'
         - 'bookworm'
-    - name: EL
+    - name: 'EL'
       versions:
         - '7'
         - '8'
         - '9'
-    - name: Ubuntu
+    - name: 'Ubuntu'
       versions:
         - 'bionic'
         - 'focal'
         - 'jammy'
-    - name: Windows
+    - name: 'Windows'
       versions:
         - '2019'
 
   galaxy_tags:
-    - openssh
-    - sshd
-    - system
-    - security
-    - windows
-    - linux
+    - 'linux'
+    - 'openssh'
+    - 'security'
+    - 'sshd'
+    - 'system'
+    - 'windows'
 
 dependencies: []
