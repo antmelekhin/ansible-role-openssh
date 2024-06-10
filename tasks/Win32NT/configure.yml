@@ -1,5 +1,5 @@
 ---
-- name: 'Windows | Ensure the OpenSSH service is running and enabled at boot'
+- name: 'Windows | Ensure OpenSSH Server is running and enabled at boot'
   ansible.windows.win_service:
     name: 'sshd'
     start_mode: 'auto'
@@ -13,13 +13,13 @@
     type: 'string'
     state: 'present'
 
-- name: 'Windows | Configure OpenSSH server'
+- name: 'Windows | Configure OpenSSH Server'
   ansible.windows.win_template:
     src: 'sshd_config_Win32NT.j2'
     dest: 'C:\ProgramData\ssh\sshd_config'
-  notify: 'Windows | Restart SSHD'
+  notify: 'Windows | Restart OpenSSH Server'
 
-- name: 'Windows | Set up a firewall rule for the OpenSSH server'
+- name: 'Windows | Allow the OpenSSH Server port in the Windows Firewall'
   ansible.windows.win_dsc:
     resource_name: Firewall
     Group: 'OpenSSH Server'
