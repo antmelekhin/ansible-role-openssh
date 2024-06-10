@@ -6,7 +6,7 @@
 
 - name: 'Windows | Install the required DSC modules'
   community.windows.win_psmodule:
-    name: '{{ item }}'
+    name: '{{ openssh_dsc_module }}'
     repository: 'PSGallery'
     accept_license: true
     state: 'present'
@@ -14,12 +14,16 @@
     - 'PowerShellGet'
     - 'ComputerManagementDsc'
     - 'NetworkingDsc'
+  loop_control:
+    loop_var: openssh_dsc_module
   when: not ansible_check_mode
 
 - name: 'Windows | Install OpenSSH packages'
   ansible.windows.win_dsc:
     resource_name: 'WindowsCapability'
-    Name: '{{ item }}'
+    Name: '{{ openssh_package }}'
     Ensure: 'Present'
   loop: '{{ _openssh_packages }}'
+  loop_control:
+    loop_var: openssh_package
   when: not ansible_check_mode

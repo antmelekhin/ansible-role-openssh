@@ -1,7 +1,7 @@
 OpenSSH
 =======
 
-An Ansible role to configure OpenSSH server and client.
+An Ansible role to configure the OpenSSH server and client.
 
 Requirements
 ------------
@@ -27,16 +27,11 @@ Requirements
 Role Variables
 --------------
 
-Variables used to configure the OpenSSH server:
-
 - `openssh_sshd_port` Specifies the port number that sshd listens on. (default: `22`).
-- `openssh_sshd_address_family` Specifies which address family should be used by sshd.
-
-  Valid values:
+- `openssh_sshd_address_family` Specifies which address family should be used by sshd. Valid values:
   - `any` (the default)
   - `inet` (use IPv4 only)
   - `inet6` (use IPv6 only)
-
 - `openssh_sshd_listen_addresses` Specifies the local addresses sshd should listen on.
 - `openssh_sshd_host_keys_dir` and `openssh_sshd_host_keys` Specifies a file containing a private host key used by sshd.
 - `openssh_sshd_syslog_facility` Gives the facility code that is used when logging messages from sshd (default: `AUTH`).
@@ -59,13 +54,10 @@ Variables used to configure the OpenSSH server:
 - `openssh_sshd_x11_forwarding` Specifies whether X11 forwarding is permitted. Not applicable in Windows (default: `false`).
 - Controlling which users and groups can connect to the server is done using the `openssh_sshd_allow_groups`, `openssh_sshd_allow_users`, `openssh_sshd_deny_groups`, and `openssh_sshd_deny_users` lists (default: `[]`).
 - `openssh_sshd_use_dns` Specifies whether sshd should look up the remote host name, and to check that the resolved host name for the remote IP address maps back to the very same IP address. (default: `false`).
-- `openssh_sshd_subsystems` Configures an external subsystem (e.g. file transfer daemon).
-
-  The default value:
+- `openssh_sshd_subsystems` Configures an external subsystem (e.g. file transfer daemon). The default values:
   - `sftp: '/usr/libexec/openssh/sftp-server'` (for RedHat)
   - `sftp: '/usr/lib/openssh/sftp-server'` (for Debian)
   - `sftp: 'C:\Windows\System32\OpenSSH\sftp-server.exe'` (for Windows)
-
 - `openssh_sshd_match` A conditional block. The arguments to Match are one or more criteria-pattern pairs or the single token All which matches all criteria. The available criteria are User, Group, Host, LocalAddress, LocalPort, RDomain and Address (See example).
 
 Dependencies
