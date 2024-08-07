@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.4.0...v1.5.0) (2024-08-07)
+
+
+### Features
+
+* add `fedora` and `amazonlinux` support ([#7](https://github.com/antmelekhin/ansible-role-openssh/issues/7)) ([06d3c45](https://github.com/antmelekhin/ansible-role-openssh/commit/06d3c4522969b9d857315e55f25d69042213d713))
+
 ## [1.4.0](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.3.3...v1.4.0) (2024-08-07)
 
 
