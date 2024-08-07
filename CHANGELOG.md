@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.4.0](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.3.3...v1.4.0) (2024-08-07)
+
+
+### Improvements
+
+* merge OS-specific variables into the `vars/main.yml` file ([#6](https://github.com/antmelekhin/ansible-role-openssh/issues/6)) ([44cbc1b](https://github.com/antmelekhin/ansible-role-openssh/commit/44cbc1b22d8378acb8063e09be99007971cb7162))
+
+
+### Styles
+
+* update common role style ([#5](https://github.com/antmelekhin/ansible-role-openssh/issues/5)) ([67cb812](https://github.com/antmelekhin/ansible-role-openssh/commit/67cb8123235e0af5df184c2cefd00d2d51b1a010))
+
 ## [1.3.3](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.3.2...v1.3.3) (2024-05-13)
 
 
