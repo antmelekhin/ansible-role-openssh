@@ -42,5 +42,5 @@ openssh_sshd_allow_users: []
 openssh_sshd_deny_groups: []
 openssh_sshd_deny_users: []
 openssh_sshd_use_dns: false
-openssh_sshd_subsystems: '{{ _openssh_sshd_subsystems }}'
+openssh_sshd_subsystems: '{{ __openssh_sshd_subsystems }}'
 openssh_sshd_match: []

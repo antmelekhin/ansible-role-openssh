@@ -1,0 +1,24 @@
+---
+__openssh_packages_dict:
+  Debian:
+    - 'openssh-server'
+    - 'openssh-client'
+  RedHat:
+    - 'openssh'
+    - 'openssh-server'
+    - 'openssh-clients'
+  Windows:
+    - 'OpenSSH.Server~~~~0.0.1.0'
+    - 'OpenSSH.Client~~~~0.0.1.0'
+
+__openssh_packages: '{{ __openssh_packages_dict[ansible_os_family] }}'
+
+__openssh_sshd_subsystems_dict:
+  Debian:
+    sftp: '/usr/lib/openssh/sftp-server'
+  RedHat:
+    sftp: '/usr/libexec/openssh/sftp-server'
+  Windows:
+    sftp: 'C:\Windows\System32\OpenSSH\sftp-server.exe'
+
+__openssh_sshd_subsystems: '{{ __openssh_sshd_subsystems_dict[ansible_os_family] }}'

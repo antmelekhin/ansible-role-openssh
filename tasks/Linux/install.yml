@@ -2,17 +2,14 @@
 - name: 'Install OpenSSH packages'
   become: true
   block:
-    - name: 'Debian | Install OpenSSH packages'
+    - name: 'Update the APT package cache'
       ansible.builtin.apt:
-        name: '{{ _openssh_packages }}'
         update_cache: true
-        state: 'present'
-      when:
-        - not ansible_check_mode
-        - ansible_os_family == 'Debian'
+        cache_valid_time: 3600
+      check_mode: false
+      when: ansible_os_family == 'Debian'
 
-    - name: 'RedHat | Install OpenSSH packages'
+    - name: 'Install OpenSSH packages'
       ansible.builtin.package:
-        name: '{{ _openssh_packages }}'
+        name: '{{ __openssh_packages }}'
         state: 'present'
-      when: ansible_os_family == 'RedHat'

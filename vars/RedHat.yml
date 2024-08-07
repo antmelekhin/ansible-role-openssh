@@ -1,8 +1,0 @@
----
-_openssh_packages:
-  - 'openssh'
-  - 'openssh-server'
-  - 'openssh-clients'
-
-_openssh_sshd_subsystems:
-  sftp: '/usr/libexec/openssh/sftp-server'
