@@ -23,7 +23,7 @@
     resource_name: 'WindowsCapability'
     Name: '{{ openssh_package }}'
     Ensure: 'Present'
-  loop: '{{ _openssh_packages }}'
+  loop: '{{ __openssh_packages }}'
   loop_control:
     loop_var: openssh_package
   when: not ansible_check_mode
