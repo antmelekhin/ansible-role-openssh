@@ -1,0 +1,155 @@
+---
+argument_specs:
+  main:
+    short_description: 'OpenSSH'
+    description:
+      - 'An Ansible role to configure the OpenSSH server and client.'
+    author:
+      - 'Melekhin Anton'
+    options:
+      openssh_sshd_port:
+        type: 'int'
+        description: 'Specifies the port number that sshd listens on.'
+        default: 22
+      openssh_sshd_address_family:
+        type: 'str'
+        description: 'Specifies which address family should be used by sshd.'
+        choices:
+          - 'any'
+          - 'inet'
+          - 'inet6'
+        default: 'any'
+      openssh_sshd_listen_addresses:
+        type: 'list'
+        description: 'Specifies the local addresses sshd should listen on.'
+        default:
+          - '0.0.0.0'
+          - '::'
+      openssh_sshd_host_keys:
+        type: 'str'
+        description: 'Specifies a file containing a private host key used by sshd.'
+        default:
+          - 'ssh_host_rsa_key'
+          - 'ssh_host_ecdsa_key'
+          - 'ssh_host_ed25519_key'
+      openssh_sshd_syslog_facility:
+        type: 'str'
+        description: 'Gives the facility code that is used when logging messages from sshd.'
+        default: 'AUTH'
+      openssh_sshd_log_level:
+        type: 'str'
+        description: 'Gives the verbosity level that is used when logging messages from sshd.'
+        default: 'INFO'
+      openssh_sshd_login_grace_time:
+        type: 'str'
+        description: 'The server disconnects after this time if the user has not successfully logged in.'
+        default: '1m'
+      openssh_sshd_max_auth_tries:
+        type: 'int'
+        description: 'Specifies the maximum number of authentication attempts permitted per connection.'
+        default: 4
+      openssh_sshd_max_sessions:
+        type: 'int'
+        description: 'Specifies the maximum number of open shell.'
+        default: 10
+      openssh_sshd_max_startups:
+        type: 'str'
+        description: 'Specifies the maximum number of concurrent unauthenticated connections to sshd.'
+        default: '10:30:60'
+      openssh_sshd_authorized_keys_file:
+        type: 'path'
+        description: 'Specifies the file that contains the public keys used for user authentication.'
+        default: '.ssh/authorized_keys'
+      openssh_sshd_password_authentication:
+        type: 'bool'
+        description: 'Specifies whether password authentication is allowed.'
+        default: false
+      openssh_sshd_kerberos_authentication:
+        type: 'bool'
+        description:
+          - 'I(Not applicable in Windows).'
+          - 'Specifies whether the password provided by the user for C(openssh_sshd_password_authentication) will be validated through the Kerberos KDC.'
+        default: false
+      openssh_sshd_kerberos_ticket_cleanup:
+        type: 'bool'
+        description:
+          - 'I(Not applicable in Windows).'
+          - "Specifies whether to automatically destroy the user's ticket cache file on logout."
+        default: true
+      openssh_sshd_gssapi_authentication:
+        type: 'bool'
+        description:
+          - 'I(Not applicable in Windows).'
+          - 'Specifies whether user authentication based on GSSAPI is allowed.'
+        default: false
+      openssh_sshd_gssapi_cleanup_credentials:
+        type: 'bool'
+        description:
+          - 'I(Not applicable in Windows).'
+          - "Specifies whether to automatically destroy the user's credentials cache on logout."
+        default: true
+      openssh_sshd_strict_modes:
+        type: 'bool'
+        description:
+          - 'I(Not applicable in Windows).'
+          - "Specifies whether sshd should check file modes and ownership of the user's files and home directory before accepting login."
+        default: true
+      openssh_sshd_permit_root_login:
+        type: 'bool'
+        description:
+          - 'I(Not applicable in Windows). To prevent administrators signing in, use Administrators with DenyGroups directive.'
+          - 'Specifies whether root can log in using sshd.'
+        default: false
+      openssh_sshd_tcp_keep_alive:
+        type: 'bool'
+        description: 'Specifies whether the system should send TCP keepalive messages to the other side.'
+        default: false
+      openssh_sshd_client_alive_interval:
+        type: 'int'
+        description: 'Sets a timeout interval in seconds after which if no data has been received from the client.'
+        default: 0
+      openssh_sshd_client_alive_count_max:
+        type: 'int'
+        description: 'Sets the number of client alive messages which may be sent without sshd receiving any messages back from the client.'
+        default: 3
+      openssh_sshd_x11_forwarding:
+        type: 'bool'
+        description:
+          - 'I(Not applicable in Windows).'
+          - 'Specifies whether X11 forwarding is permitted.'
+        default: false
+      openssh_sshd_allow_groups:
+        type: 'list'
+        elements: 'str'
+        description: 'If specified, login is allowed only for users whose primary group or supplementary group list matches one of the patterns.'
+        default: []
+      openssh_sshd_allow_users:
+        type: 'list'
+        elements: 'str'
+        description: 'If specified, login is allowed only for user names that match one of the patterns.'
+        default: []
+      openssh_sshd_deny_groups:
+        type: 'list'
+        elements: 'str'
+        description: 'Login is disallowed for users whose primary group or supplementary group list matches one of the patterns.'
+        default: []
+      openssh_sshd_deny_users:
+        type: 'list'
+        elements: 'str'
+        description: 'Login is disallowed for user names that match one of the patterns.'
+        default: []
+      openssh_sshd_use_dns:
+        type: 'bool'
+        description: 'Specifies whether sshd should look up the remote host name, and to check that the resolved host name for the remote IP address maps back to the very same IP address.'
+        default: false
+      openssh_sshd_subsystems:
+        type: 'dict'
+        description: 'Configures an external subsystem (e.g. file transfer daemon).'
+        default: '{{ __openssh_sshd_subsystems }}'
+      openssh_sshd_match:
+        type: 'list'
+        elements: 'dict'
+        description:
+          - 'A conditional block. The arguments to Match are one or more criteria-pattern pairs or the single token All which matches all criteria.'
+          - 'The available criteria are User, Group, Host, LocalAddress, LocalPort, RDomain and Address'
+        default: []
