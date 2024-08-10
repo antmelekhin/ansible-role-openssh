@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.5.0...v1.6.0) (2024-08-10)
+
+
+### Features
+
+* add `meta/argument_specs.yml` file ([#8](https://github.com/antmelekhin/ansible-role-openssh/issues/8)) ([c8c8f80](https://github.com/antmelekhin/ansible-role-openssh/commit/c8c8f80a215f889cabc7f3aa50b60463ba70376a))
+
 ## [1.5.0](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.4.0...v1.5.0) (2024-08-07)
 
 
