@@ -1,12 +1,12 @@
 ---
 - name: 'Linux | Restart OpenSSH Server'
   ansible.builtin.systemd:
-    name: 'sshd'
+    name: '{{ __openssh_sshd_service_name }}'
     state: 'restarted'
   when: not ansible_check_mode
   become: true
 
 - name: 'Windows | Restart OpenSSH Server'
   ansible.windows.win_service:
-    name: 'sshd'
+    name: '{{ __openssh_sshd_service_name }}'
     state: 'restarted'

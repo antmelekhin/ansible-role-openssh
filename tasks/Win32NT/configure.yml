@@ -1,7 +1,7 @@
 ---
 - name: 'Windows | Ensure OpenSSH Server is running and enabled at boot'
   ansible.windows.win_service:
-    name: 'sshd'
+    name: '{{ __openssh_sshd_service_name }}'
     start_mode: 'auto'
     state: 'started'
 
