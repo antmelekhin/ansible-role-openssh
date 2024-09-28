@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.7.0](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.6.0...v1.7.0) (2024-09-28)
+
+
+### Continuous Integration
+
+* use `ubuntu-22.04` instead of `ubuntu-latest` ([d646437](https://github.com/antmelekhin/ansible-role-openssh/commit/d646437222ceb5264908e04cabbd7281f3c2ea16))
+
+
+### Features
+
+* add `noble` support ([#9](https://github.com/antmelekhin/ansible-role-openssh/issues/9)) ([2384947](https://github.com/antmelekhin/ansible-role-openssh/commit/238494778b6a5548278491b17c9b4f57f49c2486))
+
 ## [1.6.0](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.5.0...v1.6.0) (2024-08-10)
 
 
