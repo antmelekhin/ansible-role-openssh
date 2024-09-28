@@ -40,8 +40,8 @@ jobs:
           - distro: 'fedora-40'
           - distro: 'rockylinux-8'
           - distro: 'rockylinux-9'
-          - distro: 'ubuntu-20.04'
           - distro: 'ubuntu-22.04'
+          - distro: 'ubuntu-24.04'
 
     steps:
       - name: 'Checkout the codebase'
