@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.1](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.7.0...v1.7.1) (2024-10-01)
+
+
+### Code Refactoring
+
+* update `SyslogFacility` and `LogLevel` variables ([e67ba12](https://github.com/antmelekhin/ansible-role-openssh/commit/e67ba122b34b17d1d0b201d6d1555b8cf1d20cd3))
+
 ## [1.7.0](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.6.0...v1.7.0) (2024-09-28)
 
 
