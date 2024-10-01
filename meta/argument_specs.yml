@@ -4,8 +4,7 @@ argument_specs:
     short_description: 'OpenSSH'
     description:
       - 'An Ansible role to configure the OpenSSH server and client.'
-    author:
-      - 'Melekhin Anton'
+    author: 'Melekhin Anton'
     options:
       openssh_sshd_port:
         type: 'int'
@@ -35,11 +34,34 @@ argument_specs:
       openssh_sshd_syslog_facility:
         type: 'str'
         description: 'Gives the facility code that is used when logging messages from sshd.'
-        default: 'AUTH'
+        choices:
+          - 'daemon'
+          - 'user'
+          - 'auth'
+          - 'authpriv'
+          - 'local0'
+          - 'local1'
+          - 'local2'
+          - 'local3'
+          - 'local4'
+          - 'local5'
+          - 'local6'
+          - 'local7'
+        default: 'auth'
       openssh_sshd_log_level:
         type: 'str'
         description: 'Gives the verbosity level that is used when logging messages from sshd.'
-        default: 'INFO'
+        choices:
+          - 'quiet'
+          - 'fatal'
+          - 'error'
+          - 'info'
+          - 'verbose'
+          - 'debug'
+          - 'debug1'
+          - 'debug2'
+          - 'debug3'
+        default: 'info'
       openssh_sshd_login_grace_time:
         type: 'str'
         description: 'The server disconnects after this time if the user has not successfully logged in.'

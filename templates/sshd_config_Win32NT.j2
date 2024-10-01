@@ -19,8 +19,8 @@ HostKey __PROGRAMDATA__/ssh/{{ host_key }}
 
 #========================================== LOGGING ============================================
 
-SyslogFacility {{ openssh_sshd_syslog_facility }}
-LogLevel {{ openssh_sshd_log_level }}
+SyslogFacility {{ openssh_sshd_syslog_facility | upper }}
+LogLevel {{ openssh_sshd_log_level | upper }}
 
 #======================================= AUTHENTICATION ========================================
 

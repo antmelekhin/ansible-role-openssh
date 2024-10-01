@@ -13,8 +13,8 @@ openssh_sshd_host_keys:
   - 'ssh_host_ed25519_key'
 
 # Logging
-openssh_sshd_syslog_facility: 'AUTH'
-openssh_sshd_log_level: 'INFO'
+openssh_sshd_syslog_facility: 'auth'
+openssh_sshd_log_level: 'info'
 
 # Authentication
 openssh_sshd_login_grace_time: '1m'
