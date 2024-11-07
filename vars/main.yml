@@ -1,15 +1,15 @@
 ---
 __openssh_packages_dict:
   Debian:
-    - 'openssh-server'
     - 'openssh-client'
+    - 'openssh-server'
   RedHat:
     - 'openssh'
-    - 'openssh-server'
     - 'openssh-clients'
+    - 'openssh-server'
   Windows:
-    - 'OpenSSH.Server~~~~0.0.1.0'
     - 'OpenSSH.Client~~~~0.0.1.0'
+    - 'OpenSSH.Server~~~~0.0.1.0'
 
 __openssh_packages: '{{ __openssh_packages_dict[ansible_os_family] }}'
 
