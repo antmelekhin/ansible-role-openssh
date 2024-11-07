@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.8.0](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.7.1...v1.8.0) (2024-11-07)
+
+
+### Features
+
+* added authentication and environment variables ([4047e8e](https://github.com/antmelekhin/ansible-role-openssh/commit/4047e8e9ef5c7ae8d747514c83d4fed9e41a39e3))
+
+
+### Styles
+
+* arranged the package variables in alphabetical order ([6cf73a6](https://github.com/antmelekhin/ansible-role-openssh/commit/6cf73a67a82efcce85d17055a026ff1b84e8988f))
+* minor fixes ([37cc185](https://github.com/antmelekhin/ansible-role-openssh/commit/37cc185c1a77e26b62a1f1276bf8c3b594bb6bd2))
+* updated indents in jinja templates ([14cfd38](https://github.com/antmelekhin/ansible-role-openssh/commit/14cfd3834e7cfd39a2448e96e5ecdcf3c42471e5))
+
 ## [1.7.1](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.7.0...v1.7.1) (2024-10-01)
 
 
