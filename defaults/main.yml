@@ -21,20 +21,28 @@ openssh_sshd_login_grace_time: '1m'
 openssh_sshd_max_auth_tries: 4
 openssh_sshd_max_sessions: 10
 openssh_sshd_max_startups: '10:30:60'
+openssh_sshd_pubkey_authentication: true
 openssh_sshd_authorized_keys_file: '.ssh/authorized_keys'
 openssh_sshd_password_authentication: false
+openssh_sshd_permit_empty_passwords: false
 openssh_sshd_kerberos_authentication: false
 openssh_sshd_kerberos_ticket_cleanup: true
 openssh_sshd_gssapi_authentication: false
 openssh_sshd_gssapi_cleanup_credentials: true
 openssh_sshd_strict_modes: true
-openssh_sshd_permit_root_login: false
+openssh_sshd_permit_root_login: 'no'
 
 # Network
 openssh_sshd_tcp_keep_alive: false
 openssh_sshd_client_alive_interval: 0
 openssh_sshd_client_alive_count_max: 3
 openssh_sshd_x11_forwarding: false
+
+# Environment
+openssh_sshd_permit_user_environment: false
+openssh_sshd_accept_env:
+  - 'LANG'
+  - 'LC_*'
 
 # Misc
 openssh_sshd_allow_groups: []

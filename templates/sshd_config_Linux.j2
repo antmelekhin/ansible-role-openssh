@@ -29,11 +29,11 @@ MaxAuthTries {{ openssh_sshd_max_auth_tries }}
 MaxSessions {{ openssh_sshd_max_sessions }}
 MaxStartups {{ openssh_sshd_max_startups }}
 
-PubkeyAuthentication yes
+PubkeyAuthentication {{ 'yes' if (openssh_sshd_pubkey_authentication | bool) else 'no' }}
 AuthorizedKeysFile {{ openssh_sshd_authorized_keys_file }}
 
 PasswordAuthentication {{ 'yes' if (openssh_sshd_password_authentication | bool) else 'no' }}
-PermitEmptyPasswords no
+PermitEmptyPasswords {{ 'yes' if (openssh_sshd_permit_empty_passwords | bool) else 'no' }}
 
 # Change to no to disable s/key passwords
 ChallengeResponseAuthentication no
@@ -58,7 +58,7 @@ GSSAPICleanupCredentials {{ 'yes' if (openssh_sshd_gssapi_cleanup_credentials | 
 UsePAM yes
 StrictModes {{ 'yes' if (openssh_sshd_strict_modes | bool) else 'no' }}
 
-PermitRootLogin {{ 'yes' if (openssh_sshd_permit_root_login | bool) else 'no' }}
+PermitRootLogin {{ openssh_sshd_permit_root_login }}
 
 #UseLogin no
 
@@ -81,10 +81,11 @@ PermitTunnel no
 
 #======================================== ENVIRONMENT ==========================================
 
-PermitUserEnvironment no
+PermitUserEnvironment {{ 'yes' if (openssh_sshd_permit_user_environment | bool) else 'no' }}
 
-# Allow client to pass locale environment variables
-AcceptEnv LANG LC_*
+{% if openssh_sshd_accept_env | length %}
+AcceptEnv {{ openssh_sshd_accept_env | join(' ') }}
+{% endif %}
 
 #=========================================== MISC ==============================================
 
