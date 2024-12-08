@@ -126,8 +126,8 @@ DenyUsers {{ openssh_sshd_deny_users | join(' ') }}
 {% endif %}
 
 {% for match in openssh_sshd_match %}
-Match {{ match.type }} {{ match.name }}
-{%   for key, value in match.config.items() %}
+Match {{ match['type'] }} {{ match['name'] }}
+{%   for key, value in match['config'].items() %}
     {{ key }} {{ value }}
 {%   endfor %}
 {% endfor %}
