@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.8.1](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.8.0...v1.8.1) (2024-12-08)
+
+
+### Documentation
+
+* **README:** updated requirements and dependencies ([ac71817](https://github.com/antmelekhin/ansible-role-openssh/commit/ac718175b38f100ee5333b275b98cb7e5d6d8eb1))
+
+
+### Styles
+
+* updated jinja templates ([7413b17](https://github.com/antmelekhin/ansible-role-openssh/commit/7413b17f56ab73238d5ab71955b04fcab1ce553f))
+
 ## [1.8.0](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.7.1...v1.8.0) (2024-11-07)
 
 
