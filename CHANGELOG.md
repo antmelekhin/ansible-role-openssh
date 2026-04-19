@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.2](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.8.1...v1.8.2) (2026-04-19)
+
+
+### Fixes
+
+* use newer style ansible facts ([7a311d7](https://github.com/antmelekhin/ansible-role-openssh/commit/7a311d7c5c4a7f2573a572d555c4f9f2666eba0f))
+
 ## [1.8.1](https://github.com/antmelekhin/ansible-role-openssh/compare/v1.8.0...v1.8.1) (2024-12-08)
 
 
