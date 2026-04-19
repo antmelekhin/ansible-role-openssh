@@ -83,7 +83,7 @@ PermitTunnel no
 
 PermitUserEnvironment {{ 'yes' if (openssh_sshd_permit_user_environment | bool) else 'no' }}
 
-{% if openssh_sshd_accept_env | length %}
+{% if openssh_sshd_accept_env | length > 0 %}
 AcceptEnv {{ openssh_sshd_accept_env | join(' ') }}
 {% endif %}
 
@@ -109,19 +109,19 @@ UseDNS {{ 'yes' if (openssh_sshd_use_dns | bool) else 'no' }}
 Subsystem	{{ key }}	{{ value }}
 {% endfor %}
 
-{% if openssh_sshd_allow_groups | length %}
+{% if openssh_sshd_allow_groups | length > 0 %}
 AllowGroups {{ openssh_sshd_allow_groups | join(' ') }}
 {% endif %}
 
-{%- if openssh_sshd_allow_users | length %}
+{%- if openssh_sshd_allow_users | length > 0 %}
 AllowUsers {{ openssh_sshd_allow_users | join(' ') }}
 {% endif %}
 
-{%- if openssh_sshd_deny_groups | length %}
+{%- if openssh_sshd_deny_groups | length > 0 %}
 DenyGroups {{ openssh_sshd_deny_groups | join(' ') }}
 {% endif %}
 
-{%- if openssh_sshd_deny_users | length %}
+{%- if openssh_sshd_deny_users | length > 0 %}
 DenyUsers {{ openssh_sshd_deny_users | join(' ') }}
 {% endif %}
 

@@ -11,9 +11,9 @@ __openssh_packages_dict:
     - 'OpenSSH.Client~~~~0.0.1.0'
     - 'OpenSSH.Server~~~~0.0.1.0'
 
-__openssh_packages: '{{ __openssh_packages_dict[ansible_os_family] }}'
+__openssh_packages: "{{ __openssh_packages_dict[ansible_facts['os_family']] }}"
 
-__openssh_sshd_service_name: "{{ (ansible_os_family == 'Debian') | ternary('ssh', 'sshd') }}"
+__openssh_sshd_service_name: "{{ (ansible_facts['os_family'] == 'Debian') | ternary('ssh', 'sshd') }}"
 
 __openssh_sshd_subsystems_dict:
   Debian:
@@ -23,4 +23,4 @@ __openssh_sshd_subsystems_dict:
   Windows:
     sftp: 'C:\Windows\System32\OpenSSH\sftp-server.exe'
 
-__openssh_sshd_subsystems: '{{ __openssh_sshd_subsystems_dict[ansible_os_family] }}'
+__openssh_sshd_subsystems: "{{ __openssh_sshd_subsystems_dict[ansible_facts['os_family']] }}"
